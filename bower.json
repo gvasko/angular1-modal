@@ -1,0 +1,14 @@
+{
+  "name": "angular1-modal",
+  "description": "Playing with Angular 1.x and components",
+  "version": "0.1.0",
+  "dependencies": {
+    "jquery": "^2",
+    "angular": "1.6.x",
+    "angular-route": "1.6.x",
+    "bootstrap": "^3"
+  },
+  "resolutions": {
+    "angular": "1.6.x"
+  }
+}

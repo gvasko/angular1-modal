@@ -1,0 +1,15 @@
+{
+  "name": "angular1-modal",
+  "description": "Playing with Angular 1.x and components",
+  "author": "Gabor Vasko-Szedlar",
+  "dependencies": {
+    "connect": "3.1.*",
+    "serve-static": "*"
+  },
+  "scripts": {
+  },
+  "devDependencies": {
+    "jasmine": "^2.5.2",
+    "jasmine-reporters": "^2.0.0"
+  }
+}
