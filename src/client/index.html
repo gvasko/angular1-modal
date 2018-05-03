@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html data-ng-app="app">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <title>Playing with Angular 1.x Components</title>
+
+    <link rel="shortcut icon" href="/server/favicon.ico" />
+
+    <!-- inject-vendor:css -->
+    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- endinject -->
+
+    <!-- inject:css -->
+    <link href="/content/styles.css" rel="stylesheet" />
+    <!-- endinject -->
+
+</head>
+<body>
+    <div data-ng-controll>
+    </div>
+    
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+    <!-- Bootstrapping -->
+    <script src="app/main/App.js"></script>
+
+    <script src="app/main-page/main-page.module.js"></script>
+    <script src="app/main-page/main-page.controller.js"></script>
+
+    <script src="app/document/action.js"></script>
+    <script src="app/document/person.js"></script>
+    <script src="app/document/personal-event.js"></script>
+    <script src="app/document/relationship.js"></script>
+    <script src="app/document/relationship-event.js"></script>
+    <script src="app/document/document-info.js"></script>
+    <script src="app/document/document.js"></script>
+
+    <script src="app/document-storage/document-storage.module.js"></script>
+    <script src="app/document-storage/document-storage.service.js"></script>
+
+    <script src="app/document-browser/document-browser.module.js"></script>
+    <script src="app/document-browser/document-browser.controller.js"></script>
+    <script src="app/document-browser/document-tile.directive.js"></script>
+
+    <script src="app/workspace/workspace.module.js"></script>
+    <script src="app/workspace/editor/editor.module.js"></script>
+    <script src="app/workspace/editor/panel-event-dispatcher.js"></script>
+    <script src="app/workspace/editor/panel-viewmodel.js"></script>
+    <script src="app/workspace/editor/editor-viewmodel.js"></script>
+    <script src="app/workspace/editor/editor.controller.js"></script>
+    <script src="app/workspace/editor/editor-panel.directive.js"></script>
+</body>

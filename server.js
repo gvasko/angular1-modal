@@ -4,7 +4,7 @@ var connect = require('connect'),
 
 var app = connect();
 
-app.use(serveStatic(__dirname + '/src/client'));
+app.use(serveStatic(__dirname + '/dist/client'));
 app.listen(port);
 
 console.log('Server running at http://localhost:' + port);

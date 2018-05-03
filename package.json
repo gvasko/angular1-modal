@@ -7,10 +7,11 @@
     "serve-static": "*"
   },
   "scripts": {
-    "build": "node node_modules/typescript/lib/tsc"
   },
   "devDependencies": {
     "@types/angular": "^1.6.43",
+    "gulp": "^3.9.1",
+    "gulp-typescript": "^4.0.2",
     "jasmine": "^2.5.2",
     "jasmine-reporters": "^2.0.0",
     "typescript": "^2.8.3"
