@@ -13,7 +13,7 @@ gulp.task("typescript", function () {
 });
 
 gulp.task("html", function () {
-    return gulp.src("src/**/*.html")
+    return gulp.src(["src/**/*.html", "src/**/*.ico"])
         .pipe(gulp.dest("dist"));
 });
 
