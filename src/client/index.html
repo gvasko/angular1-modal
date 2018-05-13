@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
     <title>Playing with Angular 1.x Components</title>
 
-    <link rel="shortcut icon" href="/server/favicon.ico" />
+    <link rel="shortcut icon" href="favicon.ico" />
 
     <!-- inject-vendor:css -->
-    <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="/vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
     <!-- endinject -->
 
     <!-- inject:css -->
@@ -18,39 +18,24 @@
 
 </head>
 <body>
-    <div data-ng-controll>
+    <div class="container">
+        <div class="jumbotron">
+            <h1>AngularJS Components with Typescript</h1>
+            <p>Reusable components to define similar complex elements.</p>
+        </div>
+        <div ng-controller="MainController as ctrl">
+            <button type="button" class="btn btn-lg btn-default" ng-click="ctrl.createOpenDocumentDialog()">Open Document</button>
+            <button type="button" class="btn btn-lg btn-default" ng-click="ctrl.createSaveDocumentDialog()">Save Document</button>
+            <button type="button" class="btn btn-lg btn-default" ng-click="ctrl.createDeleteDocumentDialog()">Delete Document</button>
+        </div>
     </div>
-    
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/bower_components/angular/angular.js"></script>
-    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+
+    <script src="/vendor/jquery/dist/jquery.js"></script>
+    <script src="/vendor/angular/angular.js"></script>
+    <script src="/vendor/bootstrap/dist/js/bootstrap.js"></script>
 
     <!-- Bootstrapping -->
     <script src="app/main/App.js"></script>
+    <script src="app/main/MainController.js"></script>
 
-    <script src="app/main-page/main-page.module.js"></script>
-    <script src="app/main-page/main-page.controller.js"></script>
-
-    <script src="app/document/action.js"></script>
-    <script src="app/document/person.js"></script>
-    <script src="app/document/personal-event.js"></script>
-    <script src="app/document/relationship.js"></script>
-    <script src="app/document/relationship-event.js"></script>
-    <script src="app/document/document-info.js"></script>
-    <script src="app/document/document.js"></script>
-
-    <script src="app/document-storage/document-storage.module.js"></script>
-    <script src="app/document-storage/document-storage.service.js"></script>
-
-    <script src="app/document-browser/document-browser.module.js"></script>
-    <script src="app/document-browser/document-browser.controller.js"></script>
-    <script src="app/document-browser/document-tile.directive.js"></script>
-
-    <script src="app/workspace/workspace.module.js"></script>
-    <script src="app/workspace/editor/editor.module.js"></script>
-    <script src="app/workspace/editor/panel-event-dispatcher.js"></script>
-    <script src="app/workspace/editor/panel-viewmodel.js"></script>
-    <script src="app/workspace/editor/editor-viewmodel.js"></script>
-    <script src="app/workspace/editor/editor.controller.js"></script>
-    <script src="app/workspace/editor/editor-panel.directive.js"></script>
 </body>
