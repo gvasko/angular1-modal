@@ -10,6 +10,7 @@
   },
   "devDependencies": {
     "@types/angular": "^1.6.43",
+    "@types/angular-strap": "^2.3.1",
     "gulp": "^3.9.1",
     "gulp-typescript": "^4.0.2",
     "jasmine": "^2.5.2",

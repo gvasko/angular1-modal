@@ -2,12 +2,14 @@
 
 module Main {
     export class MainController {
-        constructor(private $scope: any) {
+        private openModal: mgcrea.ngStrap.modal.IModal;
 
+        constructor(private $scope: any, private $modal: mgcrea.ngStrap.modal.IModalService) {
+            this.openModal = $modal({templateUrl: 'app/view/OpenDocument.html', show: false});
         }
 
         createOpenDocumentDialog() {
-            console.log("Open");
+            this.openModal.$promise.then(this.openModal.show);
         }
 
         createSaveDocumentDialog() {
@@ -21,4 +23,4 @@ module Main {
     }
 }
 
-angular.module("app").controller("MainController", ["$scope", Main.MainController]);
+angular.module("app").controller("MainController", ["$scope", "$modal", Main.MainController]);
