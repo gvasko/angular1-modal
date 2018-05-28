@@ -3,9 +3,13 @@
 module Main {
     export class MainController {
         private openModal: mgcrea.ngStrap.modal.IModal;
+        private saveModal: mgcrea.ngStrap.modal.IModal;
+        private deleteModal: mgcrea.ngStrap.modal.IModal;
 
         constructor(private $scope: any, private $modal: mgcrea.ngStrap.modal.IModalService) {
             this.openModal = $modal({templateUrl: 'app/view/OpenDocument.html', show: false});
+            this.saveModal = $modal({templateUrl: 'app/view/SaveDocument.html', show: false});
+            this.deleteModal = $modal({templateUrl: 'app/view/DeleteDocument.html', show: false});
         }
 
         createOpenDocumentDialog() {
@@ -13,11 +17,11 @@ module Main {
         }
 
         createSaveDocumentDialog() {
-            console.log("Save");
+            this.saveModal.$promise.then(this.saveModal.show);
         }
 
         createDeleteDocumentDialog() {
-            console.log("Delete");
+            this.deleteModal.$promise.then(this.deleteModal.show);
         }
 
     }
