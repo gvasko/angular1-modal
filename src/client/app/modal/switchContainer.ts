@@ -12,7 +12,6 @@ module Modal {
         }
 
         $onInit = () => {
-            console.log("initial state=" + this.initialState);
             this.activeState = this.initialState;
         }
 

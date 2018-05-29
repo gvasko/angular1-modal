@@ -1,12 +1,12 @@
 <div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
   <switch-container states="['save', 'confirmation']" initial-state="save">
-    <modal-component data-on-close="$hide()">
+    <modal-component data-on-close="saveCtrl.closeModal()">
         <modal-title>
           Save Document
         </modal-title>
         <modal-body>
           <switch-section if-state="save">
-            This will be the Save modal dialog
+            <document-chooser data-on-dirty-change="saveCtrl.setDirty(dirty)" data-on-validation="saveCtrl.setInvalid(invalid)"></document-chooser>
           </switch-section>
           <switch-section if-state="confirmation">
             Are you sure to close the existing item?
@@ -14,8 +14,7 @@
         </modal-body>
         <modal-footer>
           <switch-section if-state="save">
-            <button type="button" class="btn btn-default" ng-click="$parent.switchSectionCtrl.setActiveState('confirmation'); saveCtrl.saveItem()">Save</button>
-            <button type="button" class="btn btn-default" ng-click="$hide()">Cancel</button>
+            <default-modal-buttons main-text="Save" on-main-click="saveCtrl.saveItem()" on-close-click="saveCtrl.close()" on-cancel-click="saveCtrl.cancel()" dirty="saveCtrl.isDirty()" invalid="saveCtrl.isInvalid()" next-state="confirmation"></default-modal-buttons>
           </switch-section>
           <switch-section if-state="confirmation">
             <yes-no-buttons on-yes-click="saveCtrl.yes()" on-no-click="saveCtrl.no()"></yes-no-buttons>

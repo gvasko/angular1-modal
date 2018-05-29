@@ -1,12 +1,12 @@
 <div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
   <switch-container states="['delete', 'confirmation']" initial-state="delete">
-    <modal-component data-on-close="$hide()">
+    <modal-component data-on-close="deleteCtrl.closeModal()">
         <modal-title>
           Delete Document
         </modal-title>
         <modal-body>
           <switch-section if-state="delete">
-            This will be the Delete modal dialog
+            <document-chooser data-on-dirty-change="deleteCtrl.setDirty(dirty)" data-on-validation="deleteCtrl.setInvalid(invalid)"></document-chooser>
           </switch-section>
           <switch-section if-state="confirmation">
             Are you sure to delete?
@@ -14,8 +14,7 @@
         </modal-body>
         <modal-footer>
           <switch-section if-state="delete">
-            <button type="button" class="btn btn-default" ng-click="$parent.switchSectionCtrl.setActiveState('confirmation'); deleteCtrl.deleteItem()">Delete</button>
-            <button type="button" class="btn btn-default" ng-click="$hide()">Cancel</button>
+            <default-modal-buttons main-text="Delete" on-main-click="deleteCtrl.deleteItem()" on-close-click="deleteCtrl.close()" on-cancel-click="deleteCtrl.cancel()" dirty="deleteCtrl.isDirty()" invalid="deleteCtrl.isInvalid()" next-state="confirmation"></default-modal-buttons>
           </switch-section>
           <switch-section if-state="confirmation">
             <yes-no-buttons on-yes-click="deleteCtrl.yes()" on-no-click="deleteCtrl.no()"></yes-no-buttons>

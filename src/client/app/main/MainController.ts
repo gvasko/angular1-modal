@@ -1,49 +1,88 @@
 /// <reference path="../vendor.d.ts"/>
 
 module Main {
-    export class OpenDocumentController {
+    export class DefaultDocumentController {
+
+        private dirty = false;
+        private invalid = false;
+
+        constructor(private $scope: any) {
+
+        }
+
+        isDirty(): boolean {
+            return this.dirty;
+        }
+
+        isInvalid(): boolean {
+            return this.invalid;
+        }
+
+        setDirty(value: boolean) {
+            this.dirty = value;
+        }
+
+        setInvalid(value: boolean) {
+            this.invalid = value;
+        }
+
+        cancel() {
+            console.log("cancel");
+            this.closeModal();
+        }
+
+        close() {
+            console.log("Close");
+            this.closeModal();
+        }
+
+        yes() {
+            console.log("Yes");
+        }
+
+        no() {
+            console.log("No");
+        }
+
+        closeModal() {
+            this.$scope.$hide();
+        }
+    }
+
+    export class OpenDocumentController extends DefaultDocumentController {
+
+        constructor($scope: any) {
+            super($scope);
+        }
 
         openItem() {
             console.log("Open item");
         }
 
-        yes() {
-            console.log("Yes");
-        }
-
-        no() {
-            console.log("No");
-        }
     }
 
-    export class SaveDocumentController {
+    export class SaveDocumentController extends DefaultDocumentController {
+
+        constructor($scope: any) {
+            super($scope);
+        }
 
         saveItem() {
             console.log("Save item");
         }
 
-        yes() {
-            console.log("Yes");
-        }
-
-        no() {
-            console.log("No");
-        }
     }
 
-    export class DeleteDocumentController {
+    export class DeleteDocumentController extends DefaultDocumentController {
+
+        constructor($scope: any) {
+            super($scope);
+        }
 
         deleteItem() {
             console.log("Delete item");
         }
 
-        yes() {
-            console.log("Yes");
-        }
-
-        no() {
-            console.log("No");
-        }
     }
 
     export class MainController {

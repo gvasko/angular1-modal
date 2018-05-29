@@ -3,10 +3,13 @@
 module Modal {
     export class ModalComponent {
 
-        constructor() {
+        constructor(private $scope: any) {
 
         }
 
+        close() {
+            this.$scope.$hide();
+        }
     }
 }
 

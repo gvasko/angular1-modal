@@ -1,12 +1,12 @@
 <div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
   <switch-container states="['open', 'confirmation']" initial-state="open">
-    <modal-component data-on-close="$hide()">
+    <modal-component data-on-close="openCtrl.closeModal()">
         <modal-title>
           Open Document
         </modal-title>
         <modal-body>
           <switch-section if-state="open">
-            This will be the Open modal dialog
+            <document-chooser data-on-dirty-change="openCtrl.setDirty(dirty)" data-on-validation="openCtrl.setInvalid(invalid)"></document-chooser>
           </switch-section>
           <switch-section if-state="confirmation">
             Are you sure to close the existing item?
@@ -14,8 +14,7 @@
         </modal-body>
         <modal-footer>
           <switch-section if-state="open">
-            <button type="button" class="btn btn-default" ng-click="$parent.switchSectionCtrl.setActiveState('confirmation'); openCtrl.openItem()">Open</button>
-            <button type="button" class="btn btn-default" ng-click="$hide()">Cancel</button>
+            <default-modal-buttons main-text="Open" on-main-click="openCtrl.openItem()" on-close-click="openCtrl.close()" on-cancel-click="openCtrl.cancel()" dirty="openCtrl.isDirty()" invalid="openCtrl.isInvalid()" next-state="confirmation"></default-modal-buttons>
           </switch-section>
           <switch-section if-state="confirmation">
             <yes-no-buttons on-yes-click="openCtrl.yes()" on-no-click="openCtrl.no()"></yes-no-buttons>
