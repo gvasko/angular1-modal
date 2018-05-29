@@ -14,7 +14,11 @@ module Modal {
             console.log("initial state=" + this.activeState);
         }
 
-        setActiveState = (newState: string) => {
+        getActiveState(): string {
+            return this.activeState;
+        }
+
+        setActiveState(newState: string) {
             if (this.states.indexOf(newState) === -1) {
                 throw "Invalid state: " + newState;
             }
@@ -30,6 +34,7 @@ angular.module("app").component("switchContainer", {
     },
     templateUrl: "app/modal/SwitchContainer.html",
     transclude: true,
-    controller: Modal.SwitchContainer
+    controller: Modal.SwitchContainer,
+    controllerAs: "switchContainerCtrl"
 
 });

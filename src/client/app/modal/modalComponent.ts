@@ -20,6 +20,7 @@ angular.module("app").component("modalComponent", {
       "body": "modalBody",
       "footer": "modalFooter"
     },
-    controller: Modal.ModalComponent
+    controller: Modal.ModalComponent,
+    controllerAs: "modalCtrl"
 
 });

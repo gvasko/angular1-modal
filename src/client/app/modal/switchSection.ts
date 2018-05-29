@@ -14,10 +14,13 @@ module Modal {
             console.log("if-state=" + this.ifState);
         }
 
-        setActiveState = (newState: string) => {
-            this.containerCtrl.setActiveState(newState);
+        getActiveState(): string {
+            return this.containerCtrl.getActiveState();
         }
 
+        setActiveState(newState: string) {
+            this.containerCtrl.setActiveState(newState);
+        }
     }
 }
 
@@ -30,6 +33,7 @@ angular.module("app").component("switchSection", {
     },
     templateUrl: "app/modal/SwitchSection.html",
     transclude: true,
-    controller: Modal.SwitchSection
+    controller: Modal.SwitchSection,
+    controllerAs: "switchSectionCtrl"
 
 });
