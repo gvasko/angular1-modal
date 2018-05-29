@@ -1,12 +1,11 @@
 <div class="modal-dialog">
     <div class="modal-content">
-        <div class="modal-header" ng-show="$ctrl.title">
+        <div class="modal-header">
             <button type="button" class="close" aria-label="Close" ng-click="$ctrl.onClose()"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" ng-bind="$ctrl.title"></h4>
+            <h4 class="modal-title" ng-transclude="title">$ctrl.title</h4>
         </div>
-        <div class="modal-body" ng-bind="$ctrl.content"></div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-default" ng-click="$ctrl.onClose()">Close</button>
+        <div class="modal-body" ng-transclude="body">$ctrl.content</div>
+        <div class="modal-footer" ng-transclude="footer">
         </div>
     </div>
 </div>

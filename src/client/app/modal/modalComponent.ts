@@ -12,11 +12,14 @@ module Modal {
 
 angular.module("app").component("modalComponent", {
     bindings: {
-        title: "@",
-        content: "@",
         onClose: "&"
     },
     templateUrl: "app/modal/ModalComponent.html",
+    transclude: {
+      "title": "modalTitle",
+      "body": "modalBody",
+      "footer": "modalFooter"
+    },
     controller: Modal.ModalComponent
 
 });

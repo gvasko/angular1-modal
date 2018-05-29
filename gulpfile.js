@@ -7,7 +7,8 @@ gulp.task("typescript", function () {
               target: "es5",
               module: "commonjs",
               strict: true,
-              esModuleInterop: true
+              esModuleInterop: true,
+              strictNullChecks: false
         }));
     return tsResult.js.pipe(gulp.dest("dist"));
 });

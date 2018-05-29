@@ -1,7 +1,27 @@
 <div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
-  <modal-component
-      data-title="Save Document"
-      data-content="This will be the Save modal dialog"
-      data-on-close="$hide()">
-  </modal-component>
+  <switch-container states="['save', 'confirmation']" active-state="save">
+    <modal-component data-on-close="$hide()">
+        <modal-title>
+          Save Document
+        </modal-title>
+        <modal-body>
+          <switch-section if-state="save">
+            This will be the Save modal dialog
+          </switch-section>
+          <switch-section if-state="confirmation">
+            Are you sure to close the existing item?
+          </switch-section>
+        </modal-body>
+        <modal-footer>
+          <switch-section if-state="save">
+            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('confirmation'); saveItem()">Save</button>
+            <button type="button" class="btn btn-default" ng-click="$hide()">Cancel</button>
+          </switch-section>
+          <switch-section if-state="confirmation">
+            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('save'); yes()">Yes</button>
+            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('save');  no()">No</button>
+          </switch-section>
+        </modal-footer>
+    </modal-component>
+  </switch-container>
 </div>

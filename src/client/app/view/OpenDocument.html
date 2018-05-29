@@ -1,7 +1,27 @@
 <div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
-  <modal-component
-      data-title="Open Document"
-      data-content="This will be the Open modal dialog"
-      data-on-close="$hide()">
-  </modal-component>
+  <switch-container states="['open', 'confirmation']" active-state="open">
+    <modal-component data-on-close="$hide()">
+        <modal-title>
+          Open Document
+        </modal-title>
+        <modal-body>
+          <switch-section if-state="open">
+            This will be the Open modal dialog
+          </switch-section>
+          <switch-section if-state="confirmation">
+            Are you sure to close the existing item?
+          </switch-section>
+        </modal-body>
+        <modal-footer>
+          <switch-section if-state="open">
+            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('confirmation'); openItem()">Open</button>
+            <button type="button" class="btn btn-default" ng-click="$hide()">Cancel</button>
+          </switch-section>
+          <switch-section if-state="confirmation">
+            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('open'); yes()">Yes</button>
+            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('open');  no()">No</button>
+          </switch-section>
+        </modal-footer>
+    </modal-component>
+  </switch-container>
 </div>

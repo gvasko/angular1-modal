@@ -7,9 +7,45 @@ module Main {
         private deleteModal: mgcrea.ngStrap.modal.IModal;
 
         constructor(private $scope: any, private $modal: mgcrea.ngStrap.modal.IModalService) {
-            this.openModal = $modal({templateUrl: 'app/view/OpenDocument.html', show: false});
-            this.saveModal = $modal({templateUrl: 'app/view/SaveDocument.html', show: false});
-            this.deleteModal = $modal({templateUrl: 'app/view/DeleteDocument.html', show: false});
+
+            const openCtrl = ($scope: any) => {
+                $scope.openItem = () => {
+                    console.log("Open item");
+                };
+                $scope.yes = () => {
+                    console.log("Yes");
+                };
+                $scope.no = () => {
+                    console.log("No");
+                };
+            };
+            this.openModal = $modal({controller: openCtrl, templateUrl: "app/view/OpenDocument.html", show: false});
+
+            const saveCtrl = ($scope: any) => {
+                $scope.saveItem = () => {
+                    console.log("Save item");
+                };
+                $scope.yes = () => {
+                    console.log("Yes");
+                };
+                $scope.no = () => {
+                    console.log("No");
+                };
+            };
+            this.saveModal = $modal({controller: saveCtrl, templateUrl: "app/view/SaveDocument.html", show: false});
+
+            const deleteCtrl = ($scope: any) => {
+                $scope.deleteItem = () => {
+                    console.log("Delete item");
+                };
+                $scope.yes = () => {
+                    console.log("Yes");
+                };
+                $scope.no = () => {
+                    console.log("No");
+                };
+            };
+            this.deleteModal = $modal({controller: deleteCtrl, templateUrl: "app/view/DeleteDocument.html", show: false});
         }
 
         createOpenDocumentDialog() {
