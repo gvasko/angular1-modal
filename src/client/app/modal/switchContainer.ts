@@ -21,10 +21,14 @@ module Modal {
         }
 
         setActiveState(newState: string) {
-            if (this.states.indexOf(newState) === -1) {
-                throw "Invalid state: " + newState;
-            }
+            this.validateState(newState);
             this.activeState = newState;
+        }
+
+        validateState(state: string) {
+            if (this.states.indexOf(state) === -1) {
+                throw "Invalid state: " + state;
+            }
         }
 
         resetState() {

@@ -11,7 +11,7 @@ module Modal {
         }
 
         $onInit = () => {
-            console.log("if-state=" + this.ifState);
+            this.containerCtrl.validateState(this.ifState);
         }
 
         getActiveState(): string {
