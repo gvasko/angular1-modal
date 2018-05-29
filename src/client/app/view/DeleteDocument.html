@@ -1,23 +1,48 @@
 <div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
-  <switch-container states="['delete', 'confirmation']" initial-state="delete">
+  <switch-container states="['delete', 'areyousure', 'seriouslysure']" initial-state="delete">
     <modal-component data-on-close="deleteCtrl.closeModal()">
         <modal-title>
           Delete Document
         </modal-title>
         <modal-body>
           <switch-section if-state="delete">
-            <document-chooser data-on-dirty-change="deleteCtrl.setDirty(dirty)" data-on-validation="deleteCtrl.setInvalid(invalid)"></document-chooser>
+            <document-chooser
+                on-dirty-change="deleteCtrl.setDirty(dirty)"
+                on-validation="deleteCtrl.setInvalid(invalid)">
+            </document-chooser>
           </switch-section>
-          <switch-section if-state="confirmation">
+          <switch-section if-state="areyousure">
             Are you sure to delete?
+          </switch-section>
+          <switch-section if-state="seriouslysure">
+            Seriously? This cannot be undone!
           </switch-section>
         </modal-body>
         <modal-footer>
           <switch-section if-state="delete">
-            <default-modal-buttons main-text="Delete" on-main-click="deleteCtrl.deleteItem()" on-close-click="deleteCtrl.close()" on-cancel-click="deleteCtrl.cancel()" dirty="deleteCtrl.isDirty()" invalid="deleteCtrl.isInvalid()" next-state="confirmation"></default-modal-buttons>
+            <default-modal-buttons
+                main-text="Delete"
+                on-main-click="deleteCtrl.deleteItem()"
+                on-close-click="deleteCtrl.close()"
+                on-cancel-click="deleteCtrl.cancel()"
+                dirty="deleteCtrl.isDirty()"
+                invalid="deleteCtrl.isInvalid()"
+                next-state="areyousure">
+            </default-modal-buttons>
           </switch-section>
-          <switch-section if-state="confirmation">
-            <yes-no-buttons on-yes-click="deleteCtrl.yes()" on-no-click="deleteCtrl.no()"></yes-no-buttons>
+          <switch-section if-state="areyousure">
+            <yes-no-buttons
+                next-state="seriouslysure"
+                on-no-click="deleteCtrl.no()">
+            </yes-no-buttons>
+          </switch-section>
+          <switch-section if-state="seriouslysure">
+            <yes-no-buttons
+                on-yes-click="deleteCtrl.yes()"
+                on-no-click="deleteCtrl.no()"
+                yes-text="Yesss!"
+                no-text="Nooo!">
+            </yes-no-buttons>
           </switch-section>
         </modal-footer>
     </modal-component>

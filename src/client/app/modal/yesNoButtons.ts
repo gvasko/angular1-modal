@@ -8,6 +8,7 @@ module Modal {
         private noText: string = null;
         private onYesClick: ()=>void = null;
         private onNoClick: ()=>void = null;
+        private nextState: string = null;
 
         constructor() {
 
@@ -24,7 +25,12 @@ module Modal {
         }
 
         clickYes() {
-            this.containerCtrl.resetState();
+            if (this.nextState) {
+                this.containerCtrl.setActiveState(this.nextState);
+            } else {
+                this.containerCtrl.resetState();
+            }
+
             if (this.onYesClick) {
                 this.onYesClick();
             }
@@ -47,8 +53,9 @@ angular.module("app").component("yesNoButtons", {
     bindings: {
         yesText: "@?",
         noText: "@?",
-        onYesClick: "&",
-        onNoClick: "&"
+        onYesClick: "&?",
+        onNoClick: "&?",
+        nextState: "@?"
     },
     templateUrl: "app/modal/YesNoButtons.html",
     controller: Modal.YesNoButtons,
