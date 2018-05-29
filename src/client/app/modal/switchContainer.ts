@@ -5,13 +5,15 @@ module Modal {
 
         private states: string[] = [];
         private activeState: string = "";
+        private initialState: string = "";
 
         constructor() {
 
         }
 
         $onInit = () => {
-            console.log("initial state=" + this.activeState);
+            console.log("initial state=" + this.initialState);
+            this.activeState = this.initialState;
         }
 
         getActiveState(): string {
@@ -24,13 +26,17 @@ module Modal {
             }
             this.activeState = newState;
         }
+
+        resetState() {
+            this.activeState = this.initialState;
+        }
     }
 }
 
 angular.module("app").component("switchContainer", {
     bindings: {
         states: "<",
-        activeState: "@"
+        initialState: "@"
     },
     templateUrl: "app/modal/SwitchContainer.html",
     transclude: true,

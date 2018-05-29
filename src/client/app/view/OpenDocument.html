@@ -1,5 +1,5 @@
 <div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
-  <switch-container states="['open', 'confirmation']" active-state="open">
+  <switch-container states="['open', 'confirmation']" initial-state="open">
     <modal-component data-on-close="$hide()">
         <modal-title>
           Open Document
@@ -18,8 +18,7 @@
             <button type="button" class="btn btn-default" ng-click="$hide()">Cancel</button>
           </switch-section>
           <switch-section if-state="confirmation">
-            <button type="button" class="btn btn-default" ng-click="$parent.switchSectionCtrl.setActiveState('open'); openCtrl.yes()">Yes</button>
-            <button type="button" class="btn btn-default" ng-click="$parent.switchSectionCtrl.setActiveState('open');  openCtrl.no()">No</button>
+            <yes-no-buttons on-yes-click="openCtrl.yes()" on-no-click="openCtrl.no()"></yes-no-buttons>
           </switch-section>
         </modal-footer>
     </modal-component>

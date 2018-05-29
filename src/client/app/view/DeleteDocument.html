@@ -1,5 +1,5 @@
 <div class="modal" tabindex="-1" role="dialog" aria-hidden="true">
-  <switch-container states="['delete', 'confirmation']" active-state="delete">
+  <switch-container states="['delete', 'confirmation']" initial-state="delete">
     <modal-component data-on-close="$hide()">
         <modal-title>
           Delete Document
@@ -18,8 +18,7 @@
             <button type="button" class="btn btn-default" ng-click="$hide()">Cancel</button>
           </switch-section>
           <switch-section if-state="confirmation">
-            <button type="button" class="btn btn-default" ng-click="$parent.switchSectionCtrl.setActiveState('delete'); deleteCtrl.yes()">Yes</button>
-            <button type="button" class="btn btn-default" ng-click="$parent.switchSectionCtrl.setActiveState('delete');  deleteCtrl.no()">No</button>
+            <yes-no-buttons on-yes-click="deleteCtrl.yes()" on-no-click="deleteCtrl.no()"></yes-no-buttons>
           </switch-section>
         </modal-footer>
     </modal-component>
