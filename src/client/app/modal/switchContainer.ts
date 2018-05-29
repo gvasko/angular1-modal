@@ -11,10 +11,13 @@ module Modal {
         }
 
         $onInit = () => {
-            console.log("active state=" + this.activeState);
+            console.log("initial state=" + this.activeState);
         }
 
         setActiveState = (newState: string) => {
+            if (this.states.indexOf(newState) === -1) {
+                throw "Invalid state: " + newState;
+            }
             this.activeState = newState;
         }
     }

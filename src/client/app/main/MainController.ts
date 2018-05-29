@@ -1,6 +1,51 @@
 /// <reference path="../vendor.d.ts"/>
 
 module Main {
+    export class OpenDocumentController {
+
+        openItem() {
+            console.log("Open item");
+        }
+
+        yes() {
+            console.log("Yes");
+        }
+
+        no() {
+            console.log("No");
+        }
+    }
+
+    export class SaveDocumentController {
+
+        saveItem() {
+            console.log("Save item");
+        }
+
+        yes() {
+            console.log("Yes");
+        }
+
+        no() {
+            console.log("No");
+        }
+    }
+
+    export class DeleteDocumentController {
+
+        deleteItem() {
+            console.log("Delete item");
+        }
+
+        yes() {
+            console.log("Yes");
+        }
+
+        no() {
+            console.log("No");
+        }
+    }
+
     export class MainController {
         private openModal: mgcrea.ngStrap.modal.IModal;
         private saveModal: mgcrea.ngStrap.modal.IModal;
@@ -8,44 +53,11 @@ module Main {
 
         constructor(private $scope: any, private $modal: mgcrea.ngStrap.modal.IModalService) {
 
-            const openCtrl = ($scope: any) => {
-                $scope.openItem = () => {
-                    console.log("Open item");
-                };
-                $scope.yes = () => {
-                    console.log("Yes");
-                };
-                $scope.no = () => {
-                    console.log("No");
-                };
-            };
-            this.openModal = $modal({controller: openCtrl, templateUrl: "app/view/OpenDocument.html", show: false});
+            this.openModal = $modal({controller: OpenDocumentController, controllerAs: "openCtrl", templateUrl: "app/view/OpenDocument.html", show: false});
 
-            const saveCtrl = ($scope: any) => {
-                $scope.saveItem = () => {
-                    console.log("Save item");
-                };
-                $scope.yes = () => {
-                    console.log("Yes");
-                };
-                $scope.no = () => {
-                    console.log("No");
-                };
-            };
-            this.saveModal = $modal({controller: saveCtrl, templateUrl: "app/view/SaveDocument.html", show: false});
+            this.saveModal = $modal({controller: SaveDocumentController, controllerAs: "saveCtrl", templateUrl: "app/view/SaveDocument.html", show: false});
 
-            const deleteCtrl = ($scope: any) => {
-                $scope.deleteItem = () => {
-                    console.log("Delete item");
-                };
-                $scope.yes = () => {
-                    console.log("Yes");
-                };
-                $scope.no = () => {
-                    console.log("No");
-                };
-            };
-            this.deleteModal = $modal({controller: deleteCtrl, templateUrl: "app/view/DeleteDocument.html", show: false});
+            this.deleteModal = $modal({controller: DeleteDocumentController, controllerAs: "deleteCtrl", templateUrl: "app/view/DeleteDocument.html", show: false});
         }
 
         createOpenDocumentDialog() {

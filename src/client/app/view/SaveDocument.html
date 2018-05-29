@@ -14,12 +14,12 @@
         </modal-body>
         <modal-footer>
           <switch-section if-state="save">
-            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('confirmation'); saveItem()">Save</button>
+            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('confirmation'); saveCtrl.saveItem()">Save</button>
             <button type="button" class="btn btn-default" ng-click="$hide()">Cancel</button>
           </switch-section>
           <switch-section if-state="confirmation">
-            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('save'); yes()">Yes</button>
-            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('save');  no()">No</button>
+            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('save'); saveCtrl.yes()">Yes</button>
+            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('save');  saveCtrl.no()">No</button>
           </switch-section>
         </modal-footer>
     </modal-component>

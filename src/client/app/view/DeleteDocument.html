@@ -14,12 +14,12 @@
         </modal-body>
         <modal-footer>
           <switch-section if-state="delete">
-            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('confirmation'); deleteItem()">Delete</button>
+            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('confirmation'); deleteCtrl.deleteItem()">Delete</button>
             <button type="button" class="btn btn-default" ng-click="$hide()">Cancel</button>
           </switch-section>
           <switch-section if-state="confirmation">
-            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('delete'); yes()">Yes</button>
-            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('delete');  no()">No</button>
+            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('delete'); deleteCtrl.yes()">Yes</button>
+            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('delete');  deleteCtrl.no()">No</button>
           </switch-section>
         </modal-footer>
     </modal-component>

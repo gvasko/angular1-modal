@@ -14,12 +14,12 @@
         </modal-body>
         <modal-footer>
           <switch-section if-state="open">
-            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('confirmation'); openItem()">Open</button>
+            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('confirmation'); openCtrl.openItem()">Open</button>
             <button type="button" class="btn btn-default" ng-click="$hide()">Cancel</button>
           </switch-section>
           <switch-section if-state="confirmation">
-            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('open'); yes()">Yes</button>
-            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('open');  no()">No</button>
+            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('open'); openCtrl.yes()">Yes</button>
+            <button type="button" class="btn btn-default" ng-click="$parent.$ctrl.setActiveState('open');  openCtrl.no()">No</button>
           </switch-section>
         </modal-footer>
     </modal-component>
