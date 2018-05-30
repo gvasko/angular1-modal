@@ -6,10 +6,10 @@
         </modal-title>
         <modal-body>
           <switch-section if-state="open">
-            <document-chooser data-on-dirty-change="openCtrl.setDirty(dirty)" data-on-validation="openCtrl.setInvalid(invalid)"></document-chooser>
+            <document-chooser on-dirty-change="openCtrl.setDirty(dirty)" on-validation="openCtrl.setInvalid(invalid)"></document-chooser>
           </switch-section>
           <switch-section if-state="confirmation">
-            Are you sure to close the existing item?
+            Are you sure to close the existing document?
           </switch-section>
         </modal-body>
         <modal-footer>
