@@ -6,7 +6,10 @@
         </modal-title>
         <modal-body>
           <switch-section if-state="save">
-            <document-chooser on-dirty-change="saveCtrl.setDirty(dirty)" on-validation="saveCtrl.setInvalid(invalid)"></document-chooser>
+            <document-chooser 
+                on-dirty-change="saveCtrl.setDirty(dirty)" 
+                on-validation="saveCtrl.setInvalid(invalid)">
+            </document-chooser>
           </switch-section>
           <switch-section if-state="confirmation">
             Are you sure to overwrite the existing document?
@@ -14,10 +17,21 @@
         </modal-body>
         <modal-footer>
           <switch-section if-state="save">
-            <default-modal-buttons main-text="Save" on-main-click="saveCtrl.saveItem()" on-close-click="saveCtrl.close()" on-cancel-click="saveCtrl.cancel()" dirty="saveCtrl.isDirty()" invalid="saveCtrl.isInvalid()" next-state="confirmation"></default-modal-buttons>
+            <default-modal-buttons 
+                main-text="Save" 
+                on-main-click="saveCtrl.saveItem()" 
+                on-close-click="saveCtrl.close()" 
+                on-cancel-click="saveCtrl.cancel()" 
+                dirty="saveCtrl.isDirty()" 
+                invalid="saveCtrl.isInvalid()" 
+                next-state="confirmation">
+            </default-modal-buttons>
           </switch-section>
           <switch-section if-state="confirmation">
-            <yes-no-buttons on-yes-click="saveCtrl.yes()" on-no-click="saveCtrl.no()"></yes-no-buttons>
+            <yes-no-buttons 
+                on-yes-click="saveCtrl.yes()" 
+                on-no-click="saveCtrl.no()">
+            </yes-no-buttons>
           </switch-section>
         </modal-footer>
     </modal-component>
